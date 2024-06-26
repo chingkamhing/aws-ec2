@@ -6,7 +6,9 @@ The purpose of this project:
 
 ## Deploy to AWS
 
-* ???
+* fix problem: Unable to access object "ec2/terraform.tfstate" in S3 bucket "teraform.kamching"
+    + aws profile user need to grand kms:Decrypt permission: attach permission policy "ROSAKMSProviderPolicy" to the profile user
+    + aws console go to "KMS > Customer managed keys > terraform-s3", under "Key users", add the corresponding profile user
 
 ## References:
 
@@ -23,3 +25,4 @@ The purpose of this project:
     + [Deploying an AWS ECS Cluster of EC2 Instances With Terraform](https://medium.com/swlh/creating-an-aws-ecs-cluster-of-ec2-instances-with-terraform-85a10b5cfbe3)
     + [How to keep your terraform code clean and robust (Part1)?](https://mohamed-dhaoui.medium.com/how-to-keep-your-terraform-code-clean-and-robust-part1-64e2c8034ace)
     + [How to keep your terraform code clean and robust (Part2)](https://mohamed-dhaoui.medium.com/how-to-keep-your-terraform-code-clean-and-robust-part2-e3d913de591c)
+    + [AWS VPC — Using Terraform Modules](https://medium.com/cloud-native-daily/aws-vpc-using-terraform-modules-78d02005b745)
