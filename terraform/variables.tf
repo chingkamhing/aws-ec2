@@ -7,16 +7,16 @@ variable "region" {
   default     = ""
 }
 
-# Environment Variable
-variable "environment" {
-  description = "Environment Variable used as a prefix"
+# Business Division
+variable "owners" {
+  description = "organization this Infrastructure belongs"
   type        = string
   default     = ""
 }
 
-# Business Division
-variable "owners" {
-  description = "organization this Infrastructure belongs"
+# Environment Variable
+variable "environment" {
+  description = "Environment Variable used as a prefix"
   type        = string
   default     = ""
 }
@@ -79,7 +79,6 @@ variable "create_database_subnet_route_table" {
   default     = true
 }
 
-
 # VPC Enable NAT Gateway (True or False) 
 variable "enable_nat_gateway" {
   description = "Should be true if you want to provision NAT Gateways for each of your private networks"
@@ -92,4 +91,37 @@ variable "single_nat_gateway" {
   description = "Should be true if you want to provision a single shared NAT Gateway across all of your private networks"
   type        = bool
   default     = true
+}
+
+# Security Group variables defined as below
+
+# Security Group Name
+variable "security_group_name" {
+  description = "Security Group Name"
+  type        = string
+  default     = "sg"
+}
+
+# Security group ingress_with_cidr_blocks
+variable "security_group_ingress_blocks" {
+  description = "Security group ingress_with_cidr_blocks"
+  type = list(object({
+    description = string
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = string
+  }))
+}
+
+# Security group egress_with_cidr_blocks
+variable "security_group_egress_blocks" {
+  description = "Security group egress_with_cidr_blocks"
+  type = list(object({
+    description = string
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = string
+  }))
 }

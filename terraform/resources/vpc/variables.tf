@@ -7,13 +7,6 @@ variable "region" {
   default     = ""
 }
 
-# Environment Variable
-variable "environment" {
-  description = "Environment Variable used as a prefix"
-  type        = string
-  default     = ""
-}
-
 # Business Division
 variable "owners" {
   description = "organization this Infrastructure belongs"
@@ -21,7 +14,15 @@ variable "owners" {
   default     = ""
 }
 
+# Environment Variable
+variable "environment" {
+  description = "Environment Variable used as a prefix"
+  type        = string
+  default     = ""
+}
+
 # VPC variables defined as below
+
 # VPC Name
 variable "name" {
   description = "VPC Name"

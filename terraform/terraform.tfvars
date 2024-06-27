@@ -14,3 +14,38 @@ create_database_subnet_group       = false
 create_database_subnet_route_table = false
 enable_nat_gateway                 = true
 single_nat_gateway                 = true
+
+# Security Group Variables
+security_group_name = "security_group"
+security_group_ingress_blocks = [
+  {
+    description = "ssh port"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = "0.0.0.0/0"
+  },
+  {
+    description = "http port"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = "0.0.0.0/0"
+  },
+  {
+    description = "https port"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = "0.0.0.0/0"
+  },
+]
+security_group_egress_blocks = [
+  {
+    description = "everything"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = "0.0.0.0/0"
+  },
+]
