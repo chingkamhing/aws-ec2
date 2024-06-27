@@ -1,7 +1,7 @@
 # Generic Variables
 region      = "ap-southeast-1"
 environment = "dev"
-owners      = "aws-ec2"
+owners      = "myserver"
 
 # VPC Variables
 vpc_name                           = "vpc"
