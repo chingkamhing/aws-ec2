@@ -26,7 +26,7 @@ terraform {
 #
 
 module "vpc" {
-  source = "./modules/vpc"
+  source = "./resources/vpc"
 
   region                             = var.region
   environment                        = var.environment
