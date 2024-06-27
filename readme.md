@@ -22,7 +22,6 @@ The purpose of this project:
     + [How to Build AWS VPC using Terraform – Step by Step](https://spacelift.io/blog/terraform-aws-vpc)
 * terraform
     + [Configure S3 bucket as Terraform backend [Step-by-Step]](https://www.golinuxcloud.com/configure-s3-bucket-as-terraform-backend/)
-    + [Deploying an AWS ECS Cluster of EC2 Instances With Terraform](https://medium.com/swlh/creating-an-aws-ecs-cluster-of-ec2-instances-with-terraform-85a10b5cfbe3)
     + [How to keep your terraform code clean and robust (Part1)?](https://mohamed-dhaoui.medium.com/how-to-keep-your-terraform-code-clean-and-robust-part1-64e2c8034ace)
     + [How to keep your terraform code clean and robust (Part2)](https://mohamed-dhaoui.medium.com/how-to-keep-your-terraform-code-clean-and-robust-part2-e3d913de591c)
     + [AWS VPC — Using Terraform Modules](https://medium.com/cloud-native-daily/aws-vpc-using-terraform-modules-78d02005b745)
