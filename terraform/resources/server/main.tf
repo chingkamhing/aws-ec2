@@ -7,6 +7,7 @@ module "server" {
   ami                         = var.ami
   vpc_security_group_ids      = [var.security_group_id]
   subnet_id                   = var.subnet_id
+  user_data                   = var.user_data
   associate_public_ip_address = var.associate_public_ip_address
   monitoring                  = var.monitoring
 }

@@ -48,6 +48,12 @@ variable "subnet_id" {
   type        = string
 }
 
+# The user data to provide when launching the EC2 instance.
+variable "user_data" {
+  description = "The user data to provide when launching the instanceEC2 ."
+  type        = string
+}
+
 # Whether to associate a public IP address with an instance in a VPC
 variable "associate_public_ip_address" {
   description = "Whether to associate a public IP address with an instance in a VPC"

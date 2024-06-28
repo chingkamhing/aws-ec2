@@ -1,9 +1,13 @@
+#
 # Generic Variables
+#
 region      = "ap-southeast-1"
 environment = "dev"
 owners      = "myserver"
 
+#
 # VPC Variables
+#
 vpc_name                           = "vpc"
 cidr                               = "10.0.0.0/16"
 azs                                = ["ap-southeast-1a", "ap-southeast-1b", "ap-southeast-1c"]
@@ -15,7 +19,9 @@ create_database_subnet_route_table = false
 enable_nat_gateway                 = true
 single_nat_gateway                 = true
 
+#
 # Security Group Variables
+#
 security_group_name = "security_group"
 security_group_ingress_blocks = [
   {
@@ -50,6 +56,18 @@ security_group_egress_blocks = [
   },
 ]
 
+#
 # EC2 Variables
-ec2_name      = "ec2"
-instance_type = "t2.micro"
+#
+ec2_name                    = "ec2"
+instance_type               = "t2.micro"
+associate_public_ip_address = true
+monitoring                  = true
+# ec2 user data which install nginx and start it
+user_data                   = <<-EOF
+#!/bin/bash
+sudo yum update -y
+sudo amazon-linux-extras install nginx1 -y 
+sudo systemctl enable nginx
+sudo systemctl start nginx
+EOF

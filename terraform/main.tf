@@ -79,11 +79,14 @@ data "aws_ami" "amazon-linux-2" {
 module "server" {
   source = "./resources/server"
 
-  owners            = var.owners
-  environment       = var.environment
-  name              = var.ec2_name
-  instance_type     = var.instance_type
-  ami               = data.aws_ami.amazon-linux-2.id
-  security_group_id = module.security_group.security_group_id
-  subnet_id         = element(module.vpc.public_subnets, 0)
+  owners                      = var.owners
+  environment                 = var.environment
+  name                        = var.ec2_name
+  instance_type               = var.instance_type
+  ami                         = data.aws_ami.amazon-linux-2.id
+  security_group_id           = module.security_group.security_group_id
+  subnet_id                   = element(module.vpc.public_subnets, 0)
+  user_data                   = var.user_data
+  associate_public_ip_address = var.associate_public_ip_address
+  monitoring                  = var.monitoring
 }
