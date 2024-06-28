@@ -84,7 +84,6 @@ module "server" {
   name              = var.ec2_name
   instance_type     = var.instance_type
   ami               = data.aws_ami.amazon-linux-2.id
-  vpc_id            = module.vpc.vpc_id
   security_group_id = module.security_group.security_group_id
-  subnet_id         = module.vpc.public_subnets[0]
+  subnet_id         = element(module.vpc.public_subnets, 0)
 }

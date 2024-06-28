@@ -36,12 +36,6 @@ variable "ami" {
   type        = string
 }
 
-# EC2 VPC id
-variable "vpc_id" {
-  description = "EC2 VPC id"
-  type        = string
-}
-
 # EC2 security group id
 variable "security_group_id" {
   description = "EC2 security group id"
