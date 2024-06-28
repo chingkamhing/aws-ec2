@@ -49,3 +49,7 @@ security_group_egress_blocks = [
     cidr_blocks = "0.0.0.0/0"
   },
 ]
+
+# EC2 Variables
+ec2_name      = "ec2"
+instance_type = "t2.micro"

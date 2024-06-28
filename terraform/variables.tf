@@ -99,7 +99,7 @@ variable "single_nat_gateway" {
 variable "security_group_name" {
   description = "Security Group Name"
   type        = string
-  default     = "sg"
+  default     = "security_group"
 }
 
 # Security group ingress_with_cidr_blocks
@@ -124,4 +124,20 @@ variable "security_group_egress_blocks" {
     protocol    = string
     cidr_blocks = string
   }))
+}
+
+# EC2 variables defined as below
+
+# EC2 Name
+variable "ec2_name" {
+  description = "EC2 Name"
+  type        = string
+  default     = "server"
+}
+
+# EC2 instance type
+variable "instance_type" {
+  description = "EC2 instance type"
+  type        = string
+  default     = "t2.micro"
 }

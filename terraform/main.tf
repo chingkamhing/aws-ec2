@@ -43,6 +43,10 @@ module "vpc" {
   single_nat_gateway                 = var.single_nat_gateway
 }
 
+#
+# Security Group
+#
+
 module "security_group" {
   source = "./resources/security_group"
 
@@ -52,4 +56,35 @@ module "security_group" {
   ingress_with_cidr_blocks = var.security_group_ingress_blocks
   egress_with_cidr_blocks  = var.security_group_egress_blocks
   vpc_id                   = module.vpc.vpc_id
+}
+
+#
+# EC2
+#
+
+data "aws_ami" "amazon-linux-2" {
+  most_recent = true
+
+  filter {
+    name   = "owner-alias"
+    values = ["amazon"]
+  }
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-ebs"]
+  }
+}
+
+module "server" {
+  source = "./resources/server"
+
+  owners            = var.owners
+  environment       = var.environment
+  name              = var.ec2_name
+  instance_type     = var.instance_type
+  ami               = data.aws_ami.amazon-linux-2.id
+  vpc_id            = module.vpc.vpc_id
+  security_group_id = module.security_group.security_group_id
+  subnet_id         = module.vpc.public_subnets[0]
 }
