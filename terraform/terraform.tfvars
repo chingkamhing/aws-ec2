@@ -61,10 +61,11 @@ security_group_egress_blocks = [
 #
 ec2_name                    = "ec2"
 instance_type               = "t2.micro"
+key_name                    = "myserver-key"
 associate_public_ip_address = true
 monitoring                  = true
 # ec2 user data which install nginx and start it
-user_data                   = <<-EOF
+user_data = <<-EOF
 #!/bin/bash
 sudo yum update -y
 sudo amazon-linux-extras install nginx1 -y 

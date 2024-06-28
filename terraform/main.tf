@@ -86,6 +86,7 @@ module "server" {
   ami                         = data.aws_ami.amazon-linux-2.id
   security_group_id           = module.security_group.security_group_id
   subnet_id                   = element(module.vpc.public_subnets, 0)
+  key_name                    = var.key_name
   user_data                   = var.user_data
   associate_public_ip_address = var.associate_public_ip_address
   monitoring                  = var.monitoring

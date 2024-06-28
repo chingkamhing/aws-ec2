@@ -142,6 +142,12 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
+# Key name of the Key Pair to use for the instance
+variable "key_name" {
+  description = "Key name of the Key Pair to use for the instance"
+  type        = string
+}
+
 # The user data to provide when launching the EC2 instance.
 variable "user_data" {
   description = "The user data to provide when launching the instanceEC2 ."
