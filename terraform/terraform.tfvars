@@ -68,10 +68,9 @@ monitoring                  = true
 user_data = <<-EOF
 #!/bin/bash
 sudo yum update -y
-sudo yum install -y amazon-linux-extras glibc-langpack-en make git
+sudo yum install -y docker glibc-langpack-en make git
 
-# install, enable and start docker service
-sudo amazon-linux-extras install -y docker
+# enable and start docker service
 sudo systemctl enable docker
 sudo systemctl start docker
 sudo usermod -a -G docker $USER

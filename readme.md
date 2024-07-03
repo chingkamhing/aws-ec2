@@ -30,9 +30,12 @@ make -C terraform/ apply
 * Linux post-installation steps for Docker Engine
     + manage docker as a non-root user
     ```bash
-    sudo groupadd docker
     sudo usermod -aG docker $USER
     # log out and back in
+    ```
+    + generate a ssh key for gitlab access
+    ```bash
+    ssh-keygen -C myserver
     ```
 
 ## How to ssh to the EC2 server

@@ -61,8 +61,14 @@ module "security_group" {
 #
 # EC2
 #
+# al2023 ami format:
+# 'al2023-[ami || ami-minimal]-2023.0.[release build date].[build number]-kernel-[version number]-[arm64 || x86_64]'
+# As of 2024-07-03:
+#   amzlinux_ami_id = "ami-06d753822bd94c64e"
+#   amzlinux_ami_name = "al2023-ami-2023.5.20240701.0-kernel-6.1-x86_64"
+#
 
-data "aws_ami" "amazon-linux-2" {
+data "aws_ami" "amazon-linux" {
   most_recent = true
 
   filter {
@@ -72,7 +78,7 @@ data "aws_ami" "amazon-linux-2" {
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-ebs"]
+    values = ["al2023-ami-2023.*-kernel-*-x86_64"]
   }
 }
 
@@ -83,7 +89,7 @@ module "server" {
   environment                 = var.environment
   name                        = var.ec2_name
   instance_type               = var.instance_type
-  ami                         = data.aws_ami.amazon-linux-2.id
+  ami                         = data.aws_ami.amazon-linux.id
   security_group_id           = module.security_group.security_group_id
   subnet_id                   = element(module.vpc.public_subnets, 0)
   key_name                    = var.key_name
